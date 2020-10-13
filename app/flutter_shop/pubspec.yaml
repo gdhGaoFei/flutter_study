@@ -33,7 +33,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   # https://www.jianshu.com/p/fd422982ed3d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
   # 源的一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时等...
-  dio: ^2.0.7 
+  dio: ^3.0.9
   # 轮播组件 https://blog.csdn.net/u014005316/article/details/104260703
   flutter_swiper: ^1.1.4
   #屏幕适配 https://www.jianshu.com/p/3463afd7670e

@@ -8,4 +8,9 @@ class kString {
   static const String cateTitle = "分类";
   static const String cartTitle = "购物车";
   static const String personTitle = "我的";
+
+  // 加载中
+  static const String loading = '加载中...';
+  // 上拉加载
+  static const String loadReadyText = "上拉加载";
 }
