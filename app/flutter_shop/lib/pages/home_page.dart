@@ -1,4 +1,5 @@
 import 'dart:convert';
+// import 'dart:html';
 // import 'dart:developer';
 // import 'dart:html';
 import 'package:flutter/material.dart';
@@ -81,6 +82,18 @@ class _HomePageState extends State<HomePage>
                     // SwiperDiyHome(
                     //   swiperDataList,
                     // )
+
+                    // 分类导航
+                    TopNavgatorHome(
+                      key: Key("TopNavgatorHome"),
+                      navgatorList: category,
+                    ),
+
+                    // 推荐
+                    RecommendUIHome(
+                      key: Key('RecommendUIHome'),
+                      recommendList: recommend,
+                    ),
                   ],
                 ),
                 loadMore: () async {
@@ -135,6 +148,129 @@ class SwiperDiyHome extends StatelessWidget {
         pagination: SwiperPagination(),
         autoplay: true,
       ),
+    );
+  }
+}
+
+// - === 首页分类导航控件 顶部导航的按钮
+class TopNavgatorHome extends StatelessWidget {
+  // 数据源
+  final List navgatorList;
+  // 初始化
+  TopNavgatorHome({Key key, this.navgatorList}) : super(key: key);
+  //TopNavgatorHome({Key key, List navgatorList}) => super(key: key);
+
+  // - === 按钮
+  Widget _gridViewItemUI(BuildContext context, item, index) {
+    /// 具有点击事件的控件
+    return InkWell(
+      onTap: () {
+        print("跳转到商品详情界面" + item['firstCategoryName']);
+      },
+
+      /// 纵向控件
+      child: Column(
+        children: <Widget>[
+          Image.network(
+            item['image'],
+            width: ScreenUtil().setWidth(95),
+          ),
+          Text(
+            item['firstCategoryName'],
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // 数据源 长度
+    int ntlLen = navgatorList.length;
+    if (ntlLen > 10) {
+      navgatorList.removeRange(10, ntlLen);
+    }
+
+    // 下标
+    var tempIndex = -1;
+    return Container(
+      color: Colors.white,
+      margin: EdgeInsets.only(top: 5.0),
+      height: ScreenUtil().setHeight(320),
+      padding: EdgeInsets.all(3),
+      child: GridView.count(
+        // 禁止滚动
+        physics: NeverScrollableScrollPhysics(),
+        crossAxisCount: 5,
+        padding: EdgeInsets.all(4),
+        children: this.navgatorList.map((item) {
+          tempIndex += 1;
+          return _gridViewItemUI(context, item, tempIndex);
+        }).toList(),
+      ),
+    );
+  }
+}
+
+// - ==== 商品推荐
+class RecommendUIHome extends StatelessWidget {
+  // 数据源
+  final List recommendList;
+  // 初始化
+  RecommendUIHome({Key key, this.recommendList}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Column(
+        children: <Widget>[
+          _titleRecommendUI(context),
+          _listRecomendUI(context),
+        ],
+      ),
+    );
+  }
+
+  // - === 标题的title
+  Widget _titleRecommendUI(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+            bottom: BorderSide(width: 0.5, color: KColor.refreshTextColor)),
+      ),
+      child: Text(
+        kString.recommendText,
+        style: TextStyle(color: KColor.recommendTextColor, fontSize: 16),
+      ),
+    );
+  }
+
+  // - ==== 商品推荐的列表
+  Widget _listRecomendUI(BuildContext context) {
+    return Container(
+      height: ScreenUtil().setHeight(380),
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return Text('${index}');
+        },
+        // 滚动方向 水平
+        scrollDirection: Axis.horizontal,
+        // 个数
+        itemCount: recommendList.length,
+      ),
+    );
+  }
+
+  // Item
+  Widget _itemRecommendUI(BuildContext context, index) {
+    return InkWell(
+      onTap: () {
+        print("==============");
+      },
     );
   }
 }

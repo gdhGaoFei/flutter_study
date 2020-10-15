@@ -13,4 +13,7 @@ class kString {
   static const String loading = '加载中...';
   // 上拉加载
   static const String loadReadyText = "上拉加载";
+
+  // - === 推荐商品
+  static const String recommendText = "推荐商品";
 }
