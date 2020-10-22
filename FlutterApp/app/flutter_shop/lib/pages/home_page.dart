@@ -94,6 +94,12 @@ class _HomePageState extends State<HomePage>
                       key: Key('RecommendUIHome'),
                       recommendList: recommend,
                     ),
+
+                    // 中间的广告
+                    FloorRecommendHone(
+                      key: Key("FloorRecommendHone"),
+                      floorPic: floor1Pic,
+                    ),
                   ],
                 ),
                 loadMore: () async {
@@ -252,10 +258,10 @@ class RecommendUIHome extends StatelessWidget {
   // - ==== 商品推荐的列表
   Widget _listRecomendUI(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(380),
+      height: ScreenUtil().setHeight(280.0),
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return Text('${index}');
+          return _itemRecommendUI(context, index);
         },
         // 滚动方向 水平
         scrollDirection: Axis.horizontal,
@@ -267,10 +273,66 @@ class RecommendUIHome extends StatelessWidget {
 
   // Item
   Widget _itemRecommendUI(BuildContext context, index) {
+    Map item = recommendList[index];
     return InkWell(
       onTap: () {
-        print("==============");
+        print("=====推荐的商品${index}=========");
       },
+      child: Container(
+        width: ScreenUtil().setWidth(280.0),
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            left: BorderSide(color: KColor.refreshTextColor, width: 0.5),
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            // 防止溢出
+            Expanded(
+              child: Image.network(
+                item['image'],
+                fit: BoxFit.contain,
+              ),
+            ),
+            // 打折价
+            Text(
+              '￥${item['presentPrice']}',
+              style: TextStyle(color: KColor.presentPriceTextColor),
+            ),
+            // 原价
+            Text(
+              '￥${item['oriPrice']}',
+              style: KFont.oriPriceTextStyle,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// - ==== 商品推荐的中间广告
+class FloorRecommendHone extends StatelessWidget {
+  // 数据源
+  final Map floorPic;
+  FloorRecommendHone({Key key, this.floorPic}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      margin: EdgeInsets.only(top: 10.0),
+      child: InkWell(
+        onTap: () {
+          print(" === 中间广告位的点击事件 === ");
+        },
+        child: Image.network(
+          floorPic['PICTURE_ADDRESS'],
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

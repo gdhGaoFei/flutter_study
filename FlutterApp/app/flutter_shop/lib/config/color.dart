@@ -11,4 +11,7 @@ class KColor {
   static const Color refreshTextColor = Color.fromRGBO(132, 95, 63, 1.0);
   // 推荐商品 的字体颜色
   static const Color recommendTextColor = Color.fromRGBO(132, 95, 63, 1.0);
+
+  // 商品的打折价
+  static const Color presentPriceTextColor = Color.fromRGBO(182, 9, 9, 1.0);
 }
