@@ -100,6 +100,12 @@ class _HomePageState extends State<HomePage>
                       key: Key("FloorRecommendHone"),
                       floorPic: floor1Pic,
                     ),
+
+                    // 尾部的 商品广告
+                    FloorTailHome(
+                      key: Key('FloorTailHome'),
+                      floors: floor1,
+                    ),
                   ],
                 ),
                 loadMore: () async {
@@ -285,6 +291,7 @@ class RecommendUIHome extends StatelessWidget {
           color: Colors.white,
           border: Border(
             left: BorderSide(color: KColor.refreshTextColor, width: 0.5),
+            bottom: BorderSide(color: KColor.refreshTextColor, width: 0.5),
           ),
         ),
         child: Column(
@@ -332,6 +339,122 @@ class FloorRecommendHone extends StatelessWidget {
           floorPic['PICTURE_ADDRESS'],
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+}
+
+// - === 首页底部的 尾部的广告
+class FloorTailHome extends StatelessWidget {
+  // 数据源
+  final List<Map> floors;
+  FloorTailHome({Key key, this.floors}) : super(key: key);
+
+  // 跳转 商品的详情
+  void jumpGoodsDetail(BuildContext context, {int index}) {
+    String goodsId = this.floors[index]['goodsId'];
+    print("商品的详情=====" + goodsId);
+  }
+
+  // 进行布局
+  @override
+  Widget build(BuildContext context) {
+    // 宽度
+    double width1 = ScreenUtil.getInstance().width;
+    return Container(
+      child: Row(
+        children: <Widget>[
+          // 左侧的视图
+          Expanded(
+              child: Column(
+            children: <Widget>[
+              // 左上角的 大图
+              Container(
+                padding: EdgeInsets.only(top: 4, right: 1),
+                height: ScreenUtil().setHeight(400),
+                child: InkWell(
+                  child: Image.network(
+                    this.floors[0]["image"],
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {
+                    this.jumpGoodsDetail(context, index: 0);
+                  },
+                ),
+              ),
+
+              // 左下角的图
+              Container(
+                height: ScreenUtil().setHeight(200),
+                padding: EdgeInsets.only(top: 1, bottom: 1, right: 1),
+                child: InkWell(
+                  child: Image.network(
+                    this.floors[1]['image'],
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {
+                    this.jumpGoodsDetail(context, index: 1);
+                  },
+                ),
+              ),
+            ],
+          )),
+
+          // 右侧的视图
+          Expanded(
+              child: Column(
+            children: <Widget>[
+              // 右侧的上 大图
+              Container(
+                height: ScreenUtil().setHeight(200),
+                padding: EdgeInsets.only(top: 4, left: 1, bottom: 1),
+                child: InkWell(
+                  child: Image.network(
+                    this.floors[2]['image'],
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {
+                    this.jumpGoodsDetail(context, index: 2);
+                  },
+                ),
+              ),
+
+              // 右侧的中 图
+              Container(
+                height: ScreenUtil().setHeight(200),
+                padding: EdgeInsets.only(left: 1, top: 1),
+                child: InkWell(
+                  child: Image.network(
+                    this.floors[3]['image'],
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {
+                    this.jumpGoodsDetail(context, index: 3);
+                  },
+                ),
+              ),
+
+              // 右侧的下 图
+              Container(
+                height: ScreenUtil().setHeight(200),
+                padding: EdgeInsets.only(top: 1, bottom: 1, left: 1),
+                child: InkWell(
+                  child: Image.network(
+                    this.floors[4]['image'],
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () {
+                    this.jumpGoodsDetail(context, index: 4);
+                  },
+                ),
+              ),
+            ],
+          ))
+        ],
+        // 水平方向 均等的布局
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // 取最小的值
+        mainAxisSize: MainAxisSize.min,
       ),
     );
   }
