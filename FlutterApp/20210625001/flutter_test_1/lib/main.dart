@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_1/Widget/Demo001.dart';
+import 'package:flutter_test_1/Widget/demo002.dart';
+import 'package:flutter_test_1/Widget/demo003.dart';
 
 main() {
   runApp(MyApp());
@@ -11,7 +13,28 @@ class MyApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      routes: {
+        "/": (context) => LoginPage(),
+        // "menu": (context) => MenuPage(),
+        "layout": (context) => RowDemo(),
+      },
+      initialRoute: "layout",
+      onGenerateRoute: (RouteSettings s) {
+        print(s.name);
+        switch (s.name) {
+          case "menu":
+            return MaterialPageRoute(
+              builder: (context) {
+                return MenuPage();
+              },
+              settings: s, //RouteSettings(name: "菜单", arguments: "路由的拦截"),
+            );
+            break;
+          default:
+        }
+      },
+      // initialRoute: "menu",
+      // home: LoginPage(), //HomePage(),
     );
   }
 }

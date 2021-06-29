@@ -61,6 +61,7 @@ class _InputDemoState extends State<InputDemo> {
         child: Container(
           width: double.infinity,
           height: double.infinity,
+          color: Colors.white, //为啥必须设置颜色？
           child: Form(
             key: _key,
             // autovalidate: true,
