@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_1/Widget/Demo001.dart';
 import 'package:flutter_test_1/Widget/demo002.dart';
 import 'package:flutter_test_1/Widget/demo003.dart';
+import 'package:flutter_test_1/Widget/demo004.dart';
+import 'package:flutter_test_1/Widget/demo005.dart';
 
 main() {
   runApp(MyApp());
@@ -17,8 +19,13 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         // "menu": (context) => MenuPage(),
         "layout": (context) => RowDemo(),
+        "page": (context) => PageDemo(),
+        "bottomNav": (context) => BottomNavBarDemo(),
       },
-      initialRoute: "layout",
+      initialRoute: "bottomNav",
+      theme: ThemeData(
+        primaryColor: Colors.amber,
+      ),
       onGenerateRoute: (RouteSettings s) {
         print(s.name);
         switch (s.name) {
