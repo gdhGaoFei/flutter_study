@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_1/Widget/Demo001.dart';
+import 'package:flutter_test_1/Widget/alert_dialog_demo.dart';
 import 'package:flutter_test_1/Widget/demo002.dart';
 import 'package:flutter_test_1/Widget/demo003.dart';
 import 'package:flutter_test_1/Widget/demo004.dart';
 import 'package:flutter_test_1/Widget/demo005.dart';
+import 'package:flutter_test_1/Widget/demo006.dart';
+import 'package:flutter_test_1/Widget/grid_view_demo.dart';
+import 'package:flutter_test_1/Widget/table_demo.dart';
 
 main() {
   runApp(MyApp());
@@ -18,11 +22,15 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => LoginPage(),
         // "menu": (context) => MenuPage(),
-        "layout": (context) => RowDemo(),
-        "page": (context) => PageDemo(),
-        "bottomNav": (context) => BottomNavBarDemo(),
+        "layout": (context) => RowDemo(), // 布局
+        "page": (context) => PageDemo(), // 分页 顶部的视图
+        "bottomNav": (context) => BottomNavBarDemo(), // 底部tabbar
+        "listView": (context) => ListViewDemo(), // 列表 listView
+        "gridView": (context) => GridViewDemo(), // 网格布局
+        "alertView": (context) => AlertDialogDemo(), // 弹窗 alert
+        "table": (context) => TableDemo(), //表格
       },
-      initialRoute: "bottomNav",
+      initialRoute: "table",
       theme: ThemeData(
         primaryColor: Colors.amber,
       ),
