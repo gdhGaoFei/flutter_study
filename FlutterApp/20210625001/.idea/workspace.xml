@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e23376c6-a8d8-443e-927b-0040e5fee7f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/FlutterApp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/20210625001.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flutter_test_1/lib/Performance/p_debugDemo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_test_1/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_test_1/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_test_1/lib/Widget/table_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_test_1/lib/Widget/table_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_test_1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_test_1/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_test_1/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_test_1/pubspec.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1uhw3o8BjNpwc8T1YBos1gDrweI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
+      <option name="TESTING_TYPE" value="0" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/flutter_test_1/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JarApplication">
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e23376c6-a8d8-443e-927b-0040e5fee7f9" name="Default Changelist" comment="" />
+      <created>1625130931435</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625130931435</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="514" y="348" key="#Dart" timestamp="1625213989233">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="514" y="348" key="#Dart/0.25.1440.875@0.25.1440.875" timestamp="1625213989233" />
+    <state x="522" y="313" key="#Updates" timestamp="1625130962532">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="522" y="313" key="#Updates/0.25.1440.875@0.25.1440.875" timestamp="1625130962532" />
+    <state x="197" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625214234780">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="197" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1625214234780" />
+    <state width="1358" height="323" key="GridCell.Tab.0.bottom" timestamp="1625217266625">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state width="1358" height="323" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1625217266625" />
+    <state width="1358" height="323" key="GridCell.Tab.0.center" timestamp="1625217266625">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state width="1358" height="323" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1625217266625" />
+    <state width="1358" height="323" key="GridCell.Tab.0.left" timestamp="1625217266624">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state width="1358" height="323" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1625217266624" />
+    <state width="1358" height="323" key="GridCell.Tab.0.right" timestamp="1625217266625">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state width="1358" height="323" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1625217266625" />
+    <state x="249" y="78" key="SettingsEditor" timestamp="1625214187727">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="249" y="78" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1625214187727" />
+  </component>
+</project>

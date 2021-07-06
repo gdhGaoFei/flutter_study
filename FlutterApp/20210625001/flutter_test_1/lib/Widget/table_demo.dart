@@ -10,18 +10,24 @@ class TableDemo extends StatefulWidget {
 }
 
 class _TableDemoState extends State<TableDemo> {
-//数据源
+  //数据源
   List<Map> _list = List();
+  // 排序 ColumnIndex
+  int _columnIndex = 0;
+  // 升序还是降序
+  bool _sortAscending = true;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     // 初始化数据源
-    for (var i = 0; i < 20; i++) {
+    for (var i = 1; i < 10; i++) {
       _list.add({
-        "name": "姓名$i",
+        "name": "a" * i,
         "gender": i % 2 == 0 ? "男" : "女",
+        "select": false,
+        "age": i,
       });
     }
   }
@@ -52,9 +58,57 @@ class _TableDemoState extends State<TableDemo> {
         //       .toList(),
         // ),
         child: DataTable(
+          // onSelectAll: (value) {
+          //   setState(() {
+          //     for (var i = 0; i < _list.length; i++) {
+          //       if (_list[i]["select"] != value) {
+          //         _list[i]["select"] = value;
+          //       }
+          //     }
+          //   });
+          // },
+          sortColumnIndex: _columnIndex,
+          sortAscending: _sortAscending,
+
           columns: [
             DataColumn(
               label: Text("姓名"),
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  _columnIndex = columnIndex;
+                  _sortAscending = ascending;
+
+                  _list.sort((a, b) {
+                    if (!ascending) {
+                      var c = a;
+                      a = b;
+                      b = c;
+                    }
+                    return a["name"]
+                        .toString()
+                        .length
+                        .compareTo(b["name"].toString().length);
+                  });
+                });
+              },
+            ),
+            DataColumn(
+              label: Text("年龄"),
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  _columnIndex = columnIndex;
+                  _sortAscending = ascending;
+
+                  _list.sort((a, b) {
+                    if (!ascending) {
+                      var c = a;
+                      a = b;
+                      b = c;
+                    }
+                    return a["age"].compareTo(b["age"]);
+                  });
+                });
+              },
             ),
             DataColumn(
               label: Text("性别"),
@@ -63,12 +117,29 @@ class _TableDemoState extends State<TableDemo> {
           rows: _list
               .map(
                 (e) => DataRow(
+                  selected: e["select"],
+                  onSelectChanged: (value) {
+                    setState(() {
+                      if (e["select"] != value) {
+                        e["select"] = value;
+                      }
+                    });
+                  },
                   cells: [
                     DataCell(
-                      Text(e["name"]),
+                      Text(
+                        e["name"],
+                      ),
                     ),
                     DataCell(
-                      Text(e["gender"]),
+                      Text(
+                        e["age"].toString(),
+                      ),
+                    ),
+                    DataCell(
+                      Text(
+                        e["gender"],
+                      ),
                     ),
                   ],
                 ),

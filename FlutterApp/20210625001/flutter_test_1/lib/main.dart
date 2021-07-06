@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_1/Dio/dio_demo1.dart';
+import 'package:flutter_test_1/Performance/p_countProvider.dart';
+import 'package:flutter_test_1/Performance/p_debugDemo.dart';
+import 'package:flutter_test_1/Performance/p_demo1.dart';
+import 'package:flutter_test_1/Performance/p_provider.dart';
 import 'package:flutter_test_1/Widget/Demo001.dart';
 import 'package:flutter_test_1/Widget/alert_dialog_demo.dart';
+import 'package:flutter_test_1/Widget/cart_demo.dart';
 import 'package:flutter_test_1/Widget/demo002.dart';
 import 'package:flutter_test_1/Widget/demo003.dart';
 import 'package:flutter_test_1/Widget/demo004.dart';
@@ -8,9 +14,22 @@ import 'package:flutter_test_1/Widget/demo005.dart';
 import 'package:flutter_test_1/Widget/demo006.dart';
 import 'package:flutter_test_1/Widget/grid_view_demo.dart';
 import 'package:flutter_test_1/Widget/table_demo.dart';
+import 'package:provider/provider.dart';
 
 main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => CountProvider(),
+      ),
+    ],
+    child: MyApp(),
+  )
+      // ChangeNotifierProvider(
+      //   create: (context) => CountProvider(),
+      //   child: MyApp(),
+      // ),
+      );
 }
 
 class MyApp extends StatelessWidget {
@@ -29,8 +48,20 @@ class MyApp extends StatelessWidget {
         "gridView": (context) => GridViewDemo(), // 网格布局
         "alertView": (context) => AlertDialogDemo(), // 弹窗 alert
         "table": (context) => TableDemo(), //表格
+        "cart": (context) => CartViewDemo(), // 卡片
+
+        ///性能优化
+        "pDemo1": (context) => PODemo1(), // 性能优化
+        "debug": (context) => PODebugDemo(), // 调试
+
+        // 全局变量
+        "provider": (context) => POProviderDemo(), // 全局变量
+        "provider2": (context) => POTestProviderDemo(), // 测试全局状态变量
+
+        // dio 网络相关
+        "dio1": (context) => DioDemo1(), // 网络请求--dio
       },
-      initialRoute: "table",
+      initialRoute: "dio1",
       theme: ThemeData(
         primaryColor: Colors.amber,
       ),
