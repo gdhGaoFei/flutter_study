@@ -27,7 +27,14 @@ class _LoginViewState extends State<LoginView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            context.read<ProviderDemo>().add();
+            ProviderDemo provider = context.read<ProviderDemo>();
+            provider.add();
+            int index = provider.count;
+            print(index.toString());
+            if (index % 5 == 0) {
+              provider.loginOrLogout();
+              Navigator.of(context).popAndPushNamed("tabbar");
+            }
           });
         },
         child: Icon(Icons.add),

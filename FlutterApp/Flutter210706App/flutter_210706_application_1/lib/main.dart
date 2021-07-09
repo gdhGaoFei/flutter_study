@@ -36,8 +36,13 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        // tabBarTheme: TabBarTheme(
+        //   labelColor: Colors.red,
+        // ),
+        // primaryColor: Colors.red,
       ),
       routes: routes,
+      initialRoute: Provider.of<ProviderDemo>(context).isLogin ? "tabbar" : "/",
       // routes: {
       //   //"home": (context) => MyHomePage(title: "项目1训练"), // 首页
       //   "/": (context) => LoginView(),
