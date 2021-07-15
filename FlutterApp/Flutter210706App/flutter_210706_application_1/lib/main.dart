@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_210706_application_1/Global/Global.dart';
 import 'package:flutter_210706_application_1/Routes/routes.dart';
-import 'package:flutter_210706_application_1/View/LoginView.dart';
+import 'package:flutter_210706_application_1/ViewModel/LoginViewModel.dart';
 import 'package:flutter_210706_application_1/provider/Provider.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -11,6 +11,9 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (context) => ProviderDemo(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => LoginViewModel(), // 登录注册的ViewModel
         ),
       ],
       child: MyApp(),
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
         // primaryColor: Colors.red,
       ),
       routes: routes,
+      builder: EasyLoading.init(),
       initialRoute: Provider.of<ProviderDemo>(context).isLogin ? "tabbar" : "/",
       // routes: {
       //   //"home": (context) => MyHomePage(title: "项目1训练"), // 首页

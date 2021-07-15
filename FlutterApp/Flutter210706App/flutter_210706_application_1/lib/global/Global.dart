@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 class Global {
   // 网络请求的工具类
-  late Dio dio;
+  Dio dio;
 
   // static _instance，_instance会在编译期被初始化，保证了只被创建一次  // 初始化的单例对象
   static final Global _instance = Global._internal();
@@ -23,7 +23,7 @@ class Global {
   void init() {
     dio = Dio();
     dio.options = BaseOptions(
-      baseUrl: "https://api.sprakle.io/app/v2/",
+      baseUrl: "https://zxw.td0f7.cn/",
       connectTimeout: 5000, //链接超时时间
       sendTimeout: 5000, // 发送的超时时间
       receiveTimeout: 30000, // 响应的超时时间

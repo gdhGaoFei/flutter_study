@@ -1,6 +1,7 @@
 // 翻译
 
 import 'package:flutter/material.dart';
+import 'package:flutter_210706_application_1/base/baseview.dart';
 
 class TabbarFanYiView extends StatefulWidget {
   //const TabbarFanYiView({ Key? key }) : super(key: key);
@@ -13,10 +14,7 @@ class _TabbarFanYiViewState extends State<TabbarFanYiView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("翻译"),
-        centerTitle: true,
-      ),
+      appBar: getBaseNavBar("翻译"),
       body: Column(
         children: [
           ElevatedButton(
