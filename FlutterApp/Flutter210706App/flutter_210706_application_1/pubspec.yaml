@@ -48,7 +48,7 @@ dependencies:
   # RSA加密
   encrypt: ^5.0.0
   # UI框架
-  # weui: 0.0.8
+  weui: 0.0.8
   # 一款仿微信效果的 Flutter 左滑菜单插件
   left_scroll_actions: ^1.5.3
   # 极光推送

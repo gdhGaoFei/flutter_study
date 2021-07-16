@@ -1,11 +1,15 @@
 // 登录界面
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_210706_application_1/Untils/rsa/rsa_utils.dart';
+import 'package:flutter_210706_application_1/ViewModel/LoginViewModel.dart';
 import 'package:flutter_210706_application_1/base/baseview.dart';
 import 'package:flutter_210706_application_1/provider/Provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
+import 'package:weui/weui.dart';
 
 class LoginView extends StatefulWidget {
   //const LoginView({ Key? key }) : super(key: key);
@@ -127,12 +131,18 @@ class _LoginViewState extends State<LoginView> {
             Container(
               width: double.infinity,
               height: 48,
-              child: ElevatedButton(
-                onPressed: _login,
-                child: Text(
-                  "登录",
-                  style: TextStyle(fontSize: 18),
-                ),
+              // child: ElevatedButton(
+              //   onPressed: _login,
+              //   child: Text(
+              //     "登录",
+              //     style: TextStyle(fontSize: 18),
+              //   ),
+              // ),
+              child: WeButton(
+                "登录",
+                theme: WeButtonType.primary,
+                onClick: _login,
+                loading: Provider.of<LoginViewModel>(context).getIsLogin,
               ),
             ),
             SizedBox(
@@ -194,6 +204,9 @@ class _LoginViewState extends State<LoginView> {
       return;
     }
 
+    // 登录中...
+    context.read<LoginViewModel>().setIsLogin(true);
+
     //用户名
     var userStr = _user.text;
     //密码
@@ -202,6 +215,13 @@ class _LoginViewState extends State<LoginView> {
     print("\n\n\n");
     // print("密码：" + encodeString(password));
     print("密码：" + password);
+
+    // EasyLoading.show();
+    new Timer(Duration(seconds: 3), () {
+      context.read<LoginViewModel>().setIsLogin(false);
+      Navigator.of(context).popAndPushNamed("tabbar");
+      // EasyLoading.dismiss();
+    });
   }
 
   // 注册的跳转

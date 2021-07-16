@@ -1,7 +1,10 @@
 // 翻译
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_210706_application_1/base/baseview.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class TabbarFanYiView extends StatefulWidget {
   //const TabbarFanYiView({ Key? key }) : super(key: key);
@@ -18,15 +21,20 @@ class _TabbarFanYiViewState extends State<TabbarFanYiView> {
       body: Column(
         children: [
           ElevatedButton(
-            onPressed: () {
-              setState(() {
-                Navigator.of(context).popAndPushNamed("/");
-              });
-            },
+            onPressed: _logout,
             child: Text("退出登录"),
           ),
         ],
       ),
     );
+  }
+
+  // 退出登录
+  void _logout() {
+    EasyLoading.show();
+    new Timer(Duration(seconds: 3), () {
+      Navigator.of(context).popAndPushNamed("/");
+      EasyLoading.dismiss();
+    });
   }
 }

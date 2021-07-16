@@ -11,7 +11,7 @@ class LoginViewModel extends ChangeNotifier {
   }
 
   //set
-  void set setIsLogin(bool value) {
+  void setIsLogin(bool value) {
     _isLogin = value;
     notifyListeners();
   }
