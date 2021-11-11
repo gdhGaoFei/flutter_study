@@ -5,16 +5,14 @@ import re  # 正则表达式，进行文字匹配
 # import urllib.request  # 制定URL，获取网页数据
 # import urllib.error  # 制定URL，获取网页数据
 import requests  # 制定URL，获取网页数据
-import xlwt  # 进行Excel操作
+# import xlwt  # 进行Excel操作
+import openpyxl   # 进行Excel操作
 import sqlite3  # 进行SQLite数据库操作
 
 # 请求头 - header
 headers = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
 }
-
-# 请求的基础的URL
-base_url = "https://movie.douban.com/top250?start="
 
 
 # 得到指定一个URL的网页内容
@@ -84,15 +82,16 @@ def getData(url):
             titles_others = re.findall(pattern=find_title_other, string=item)
             for tit in titles_others:
                 title += tit
-            if title.find("海上钢琴师") >= 0:
-                print(title)
-                pass
+            # if title.find("海上钢琴师") >= 0:
+            #     print(title)
+            #     pass
 
             # 导演的信息
             director = ''
             directors = re.findall(pattern=find_daoyan, string=item)
             if len(directors) > 0:
                 director = directors[0]
+                director = director.replace("\n", "").strip().replace("<br/>                            ", "\n")
 
             # 影片的评分
             rate = ''
@@ -112,21 +111,57 @@ def getData(url):
             if len(inqs) > 0:
                 inq = inqs[0]
 
-            dict1 = {
-                "link": link,
-                "img": img,
-                "title": title,
-                "director": director,
-                "inq": inq,
-                "rate": rate,
-                "num": num,
-            }
-            dataList.append(dict1)
+            # dict1 = {
+            #     "link": link,
+            #     "img": img,
+            #     "title": title,
+            #     "director": director,
+            #     "inq": inq,
+            #     "rate": rate,
+            #     "num": num,
+            # }
+            # dataList.append(dict1)
+
+            # ['电影名', '电影图片', '详情地址', '导演信息', '评分', '评价人数', '简介']
+            lists = [title, img, link, director, rate, num, inq]
+            dataList.append(lists)
     return dataList
 
 
-lists1 = getData(url=base_url)
-print(lists1)
+# 保存数据到Excel中
+def saveDataToExcel(lists, path):
+    print("保存数据到Excel中")
+    # 1.创建Excel的操作对象
+    workbook = openpyxl.Workbook()
+    worksheet = workbook.create_sheet(title="豆瓣电影Top250")
+    # 第一行的标题
+    xlsx_titles = ['电影名', '电影图片', '详情地址', '导演信息', '评分', '评价人数', '简介']
+    for i in range(0, len(xlsx_titles)):
+        worksheet.cell(row=1, column=i+1, value=xlsx_titles[i])
+
+    for i in range(0, len(lists)):
+        das = lists[i]
+        for j in range(0, len(das)):
+            worksheet.cell(row=2+i, column=j+1, value=das[j])
+    workbook.save(filename=path)
+
+
+# 主函数 进入
+def main():
+    # 请求的基础的URL
+    base_url = "https://movie.douban.com/top250?start="
+    # 1. 抓取数据 2.解析数据
+    lists1 = getData(url=base_url)
+    # print(lists1)
+    # 3.0 保存数据
+    # 3.1 通过Excel 保存数据
+    save_path = "豆瓣电影Top250.xlsx"
+    saveDataToExcel(lists=lists1, path=save_path)
+
+
+if __name__ == "__main__":
+    main()   # 调用函数 进行运行程序
+    print("数据已经全部保存完毕，请查看~")
 """
 # 请求地址
 url_path = base_url + "0"
@@ -157,3 +192,33 @@ BeautifulSoup4将复杂的HTML文档换成一个复杂的树形结构，每个�
 
 2. 正则表达式搜索：使用search() 方法来匹配内容
 """
+
+
+# 测试Excel
+# workbook = openpyxl.Workbook()
+# worksheet = workbook.create_sheet(title="Sheet")
+# # worksheet["A1"] = "hello"
+# worksheet.cell(row=1, column=1, value='Hello')
+# workbook.save(filename="./test1.xlsx")
+
+# 九九乘法表
+# workbook = openpyxl.Workbook()
+# worksheet = workbook.create_sheet(title="九九乘法表")
+# for i in range(1, 10):
+#     for j in range(1, i+1):
+#         value = '%d*%d=%d' % (j, i, i*j)
+#         worksheet.cell(row=i, column=j, value=value)
+# workbook.save(filename="./test1.xlsx")
+
+
+# 去除开头的换行符 和 空格
+# str1 = """
+#                             导演: 弗兰克·德拉邦特 Frank Darabont   主演: 蒂姆·罗宾斯 Tim Robbins /...<br/>
+#                             1994 / 美国 / 犯罪 剧情
+#
+# """
+#
+# str2 = str1.replace("\n", "")
+#
+# str3 = str2.strip()
+# print(str1)
