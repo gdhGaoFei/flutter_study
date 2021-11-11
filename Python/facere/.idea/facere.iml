@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/Interpreters_Location" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (facere)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (PythonLibrary)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

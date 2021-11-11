@@ -11,6 +11,7 @@ import sqlite3  # 进行SQLite数据库操作
 
 # 请求头 - header
 headers = {
+    # 伪装 浏览器进行 请求数据
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
 }
 
@@ -160,7 +161,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()   # 调用函数 进行运行程序
+    # main()   # 调用函数 进行运行程序
     print("数据已经全部保存完毕，请查看~")
 """
 # 请求地址
@@ -222,3 +223,9 @@ BeautifulSoup4将复杂的HTML文档换成一个复杂的树形结构，每个�
 #
 # str3 = str2.strip()
 # print(str1)
+
+
+# sqlite3 的练习操作
+
+con = sqlite3.connect(database="test.db")   # 打开或者创建数据库
+print("数据库打开成功了")

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76aaa3af-5eaf-408b-bf2f-2ab0beebfdd5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/auto_office.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/auto_office1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/auto_office2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/source/6377204931816695924077953.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/source/sum.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomatedOffice/source/test.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DouYin/TikTokApi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DouYin/TikTokVideo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DouYin/video/盘中解读： #医药 连续下跌， #新能源 上涨，机会是谁？.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DouYin/video/盘点各地的超级县城，昔日贫困县曹县凭啥逆袭翻身？#曹县 #山东 #鲁生可畏 .mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facere/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reptile/data_json.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reptile/reptile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reptile/test.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reptile/test1.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reptile/豆瓣电影Top250.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Python.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_123.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_123.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/for_down_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/for_down_image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/.idea/facere.iml" beforeDir="false" afterPath="$PROJECT_DIR$/facere/.idea/facere.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/facere/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/auto_office.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/auto_office1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/auto_office2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/source/6377204931816695924077953.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/source/sum.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/AutomatedOffice/source/test.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/DouYin/TikTokApi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/DouYin/TikTokVideo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/DouYin/video/盘中解读： #医药 连续下跌， #新能源 上涨，机会是谁？.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/DouYin/video/盘点各地的超级县城，昔日贫困县曹县凭啥逆袭翻身？#曹县 #山东 #鲁生可畏 .mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/reptile/data_json.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/reptile/reptile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/reptile/test1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facere/reptile/豆瓣电影Top250.xlsx" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="Python/invalid/Python" />
+    </ignored-facets>
+  </component>
+  <component name="ProjectId" id="20lDnM5dTGSt3eToNHnvdX0WN4N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager" selected="Python.reptile">
+    <configuration name="face_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/facere" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/facere/face_demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="reptile" type="PythonConfigurationType" factoryName="Python">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/reptile" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/reptile/reptile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="reptile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/facere/reptile" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/facere/reptile/reptile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="study001" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/study01" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/study01/study001.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.face_demo" />
+        <item itemvalue="Python.study001" />
+        <item itemvalue="Python.reptile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76aaa3af-5eaf-408b-bf2f-2ab0beebfdd5" name="Default Changelist" comment="" />
+      <created>1636610448702</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636610448702</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

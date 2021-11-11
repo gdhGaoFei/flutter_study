@@ -3,7 +3,7 @@ import time
 from urllib.request import urlopen, urlretrieve
 
 
-#下载HTML
+# 下载HTML
 def getHtml(url1):
     page = urlopen(url1)
     html = page.read()
@@ -12,25 +12,26 @@ def getHtml(url1):
 # html = getHtml("https://tieba.baidu.com/p/5582243679")
 # print(html)
 
-#从html中解析出图片URL
+# 从html中解析出图片URL
 def getImg(html):
-    reg=r'img src="(.*?\.png)"'
-    imgre=re.compile(reg)
-    htmld=html.decode('utf-8')
-    imglist=imgre.findall(htmld)
+    reg = r'img src="(.*?\.png)"'
+    imgre = re.compile(reg)
+    htmld = html.decode('utf-8')
+    imglist = imgre.findall(htmld)
     return imglist
 
-#下载处理
+
+# 下载处理
 def imgDownload(imgUrl):
     urlretrieve(imgUrl, '%s.jpg'%time.time())
 
 
-#主函数
+# 主函数
 def main():
     print("开始下载文件")
-    url='http://www.gamemm.com'
-    html=getHtml(url)
-    imglist=getImg(html)
+    url = 'http://www.gamemm.com'
+    html = getHtml(url)
+    imglist = getImg(html)
     print(imglist)
     for imgurl in imglist:
         url1 = imgurl
@@ -42,10 +43,8 @@ def main():
         imgDownload(url1)
         
 
-
-
 def down_huaxue_png():
-    for i in range(1,275):
+    for i in range(1, 275):
         url = "http://zh2019.91taoke.com/file/gz/hx/dzs/2021ban/bbg/dyl/fxjy/rjbxgk/xs/files/mobile/%d.jpg" % i
         imgDownload(url)
 
