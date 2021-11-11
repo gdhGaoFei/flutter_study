@@ -86,6 +86,7 @@ def getData(url):
             # if title.find("海上钢琴师") >= 0:
             #     print(title)
             #     pass
+            # print(type(title))
 
             # 导演的信息
             director = ''
@@ -147,6 +148,77 @@ def saveDataToExcel(lists, path):
     workbook.save(filename=path)
 
 
+# 使用SQLite进行保存数据
+def saveDataToSQLite(lists, path):
+    # 初始化 数据库
+    initSQLiteData(path=path)
+    # return ""
+    # 创建 或者 打开数据库
+    db_conn = sqlite3.connect(database=path)
+    # 获取游标
+    db_cursor = db_conn.cursor()
+    # 执行的sql语句
+    for i in range(0, len(lists)):
+        das = lists[i]
+        # das.insert(0, i+1)
+        for j in range(len(das)):
+            # if j != 4:
+            das[j] = '"' + das[j] + '"'
+        db_sql = '''
+            insert into doubanMovieTop250 (name, img, info_link, director, rate, evaluator, info)
+            values (%s) ''' % ",".join(das)
+        print(db_sql)
+        # 开始执行
+        db_cursor.execute(db_sql)
+        # 提交
+        db_conn.commit()
+        # db_sql = """
+        #     insert into doubanMovieTop250 (name, img, info_link, director, rate, evaluator, info)
+        #     values ('%s', '%s', '%s', '%s', %0.1f, '%s', '%s')
+        #     """ % (das[0], das[1], das[2], das[3], das[4], das[5], das[6])
+    # db_sql = """
+    #             insert into doubanMovieTop250 (name, img, info_link, director, rate, evaluator, info)
+    #             values ('%s', '%s', '%s', '%s', %0.1f, '%s', '%s')
+    #             """ % ('电影名1', '电影图片1', '详情地址1', '导演信息1', 9.8, '评价人数1', '简介1')
+    # db_sql = """
+    #             insert into doubanMovieTop250 (name, img, info_link, director, rate, evaluator, info)
+    #             values ('电影名2', '电影图片1', '详情地址1', '导演信息1', 9.8, '评价人数1', '简介1')
+    #             """
+
+    # 关闭
+    db_conn.close()
+    # db_cursor.close()
+
+
+# 开始初始化 数据库
+def initSQLiteData(path):
+    # 打开或者创建 数据库
+    db = sqlite3.connect(database=path)
+    # 游标
+    db_c = db.cursor()
+    # 执行的语句 - 创建 表 primary ['电影名', '电影图片', '详情地址', '导演信息', '评分', '评价人数', '简介']
+    sql1 = """
+        create table doubanMovieTop250
+        (
+          id integer primary key autoincrement,
+          name text,
+          img text,
+          info_link text,
+          director text,
+          rate real,
+          evaluator text,
+          info text
+        )
+    """
+    # 开始执行
+    db_c.execute(sql1)
+    # 提交
+    db.commit()
+    # 关闭
+    db_c.close()
+    db.close()
+
+
 # 主函数 进入
 def main():
     # 请求的基础的URL
@@ -156,12 +228,15 @@ def main():
     # print(lists1)
     # 3.0 保存数据
     # 3.1 通过Excel 保存数据
-    save_path = "豆瓣电影Top250.xlsx"
-    saveDataToExcel(lists=lists1, path=save_path)
+    # save_path = "豆瓣电影Top250.xlsx"
+    # saveDataToExcel(lists=lists1, path=save_path)
 
+    # 3.2 通过sqlite 保存数据
+    db_path = "doubanMovieTop250.db"
+    saveDataToSQLite(lists=lists1, path=db_path)
 
 if __name__ == "__main__":
-    # main()   # 调用函数 进行运行程序
+    main()   # 调用函数 进行运行程序
     print("数据已经全部保存完毕，请查看~")
 """
 # 请求地址
@@ -227,5 +302,75 @@ BeautifulSoup4将复杂的HTML文档换成一个复杂的树形结构，每个�
 
 # sqlite3 的练习操作
 
-con = sqlite3.connect(database="test.db")   # 打开或者创建数据库
-print("数据库打开成功了")
+# con = sqlite3.connect(database="test.db")   # 打开或者创建数据库
+# print("数据库打开成功了")
+#
+# c = con.cursor()   # 获取游标
+#
+# # 执行的sql语句
+# sql = """
+#     create table company
+#         (id int primary key not null,
+#         name text not null,
+#         age int not null,
+#         address char(50),
+#         salary real);
+# """
+#
+# # 执行sql语句
+# c.execute(sql)
+# con.commit()   # 提交数据库操作
+# con.close()    # 关闭数据库连接
+#
+# print("成功建表")
+
+
+# 插入数据
+
+# conn = sqlite3.connect(database="test.db")   # 打开或者创建数据库
+# c1 = conn.cursor()  # 获取游标
+#
+# # 需要执行的语句
+# sql1 = """
+#      insert into company (id, name, age, address, salary)
+#      values (1, '张三', 43, "北京", 18000);
+# """
+#
+# sql2 = """
+#      insert into company (id, name, age, address, salary)
+#      values (2, "李四", 34, "上海", 30000);
+# """
+#
+# # 执行的sql语句
+# c1.execute(sql1)
+# c1.execute(sql2)
+# # 对执行的语句进行提交
+# conn.commit()
+# # 关闭数据库
+# conn.close()
+
+
+# 执行查询语句
+
+# # 打开 或者 创建 数据库
+# conn_search = sqlite3.connect(database="test.db")
+# # 获取游标
+# c_search = conn_search.cursor()
+#
+# # 执行的sql语句
+# sql_search = """
+#     select id, name, age, address, salary from company
+# """
+#
+# # 执行
+# lists = c_search.execute(sql_search)
+# for item in lists:
+#     print(item)
+#
+# # 提交
+# # conn_search.commit()
+# # 关闭数据库
+# conn_search.close()
+# print("完成")
+
+
