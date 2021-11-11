@@ -61,8 +61,13 @@ dependencies:
   flutter_swiper: ^1.1.6
   # 提示框
   flutter_easyloading: ^3.0.0
+  # json 转 model
+  # dart_json_mapper: ^2.1.2
+  json_annotation: ^3.0.1
 
 dev_dependencies:
+  json_serializable: ^3.2.5
+  build_runner: ^1.8.0
   flutter_test:
     sdk: flutter
 

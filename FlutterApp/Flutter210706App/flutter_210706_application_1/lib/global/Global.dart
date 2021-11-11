@@ -33,21 +33,21 @@ class Global {
       }, // 请求头
       responseType: ResponseType.json, // 返回值解析类型
     );
-    dio.interceptors.add(InterceptorsWrapper(
-      // 这句话加上 如何在继续请求网络
-      onRequest: (options, RequestInterceptorHandler hander) {
-        print("请求信息：->\n请求头" + options.headers.toString());
-        // print("\n请求参数" + options.extra.toString());
-        //print("\n\n请求头" + options.toString());
-        // hander.on - 继续请求？？？
-        hander.next(options);
-      },
-      onResponse: (e, hander) {
-        print("\n请求回来的数据:->\n" + e.toString());
-      },
-      onError: (error, hander) {
-        print("\n请求的错误信息：->\n" + error.toString());
-      },
-    ));
+    // dio.interceptors.add(InterceptorsWrapper(
+    //   // 这句话加上 如何在继续请求网络
+    //   onRequest: (options, RequestInterceptorHandler hander) {
+    //     print("请求信息：->\n请求头" + options.headers.toString());
+    //     // print("\n请求参数" + options.extra.toString());
+    //     //print("\n\n请求头" + options.toString());
+    //     // hander.on - 继续请求？？？
+    //     hander.next(options);
+    //   },
+    //   onResponse: (e, hander) {
+    //     print("\n请求回来的数据:->\n" + e.toString());
+    //   },
+    //   onError: (error, hander) {
+    //     print("\n请求的错误信息：->\n" + error.toString());
+    //   },
+    // ));
   }
 }

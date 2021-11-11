@@ -204,24 +204,26 @@ class _LoginViewState extends State<LoginView> {
       return;
     }
 
-    // 登录中...
-    context.read<LoginViewModel>().setIsLogin(true);
-
     //用户名
     var userStr = _user.text;
     //密码
     var password = _pwd.text;
-    print("用户名：" + userStr);
-    print("\n\n\n");
-    // print("密码：" + encodeString(password));
-    print("密码：" + password);
+    // 登录
+    context.read<LoginViewModel>().login_user(userStr, password);
 
-    // EasyLoading.show();
-    new Timer(Duration(seconds: 3), () {
-      context.read<LoginViewModel>().setIsLogin(false);
-      Navigator.of(context).popAndPushNamed("tabbar");
-      // EasyLoading.dismiss();
-    });
+    // // 登录中...
+    // context.read<LoginViewModel>().setIsLogin(true);
+    // print("用户名：" + userStr);
+    // print("\n\n\n");
+    // // print("密码：" + encodeString(password));
+    // print("密码：" + password);
+
+    // // EasyLoading.show();
+    // new Timer(Duration(seconds: 3), () {
+    //   context.read<LoginViewModel>().setIsLogin(false);
+    //   Navigator.of(context).popAndPushNamed("tabbar");
+    //   // EasyLoading.dismiss();
+    // });
   }
 
   // 注册的跳转
