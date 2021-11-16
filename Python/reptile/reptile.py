@@ -151,7 +151,7 @@ def saveDataToExcel(lists, path):
 # 使用SQLite进行保存数据
 def saveDataToSQLite(lists, path):
     # 初始化 数据库
-    initSQLiteData(path=path)
+    # initSQLiteData(path=path)
     # return ""
     # 创建 或者 打开数据库
     db_conn = sqlite3.connect(database=path)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交结果</title>
+</head>
+<body>
+提交结果
+
+<table border="1">
+    {% for k,v in forms.items() %}
+        <tr>
+            <th>{{ k }}</th>
+            <td>{{ v }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

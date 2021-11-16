@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习Flask</title>
+</head>
+<body>
+---- 普通变量 -----<br><br>
+正在学习Python-学习Flask <br/>
+今天的日期是{{ var }} <br/>
+
+<br><br>------  for 循环  -------
+今天值班的是：<br/> <!--用大括号与百分号括起来的是控制结构， 其中包含 for、if等语句--->
+{% for name in names %}
+    {{ name }} <br/>
+{% endfor %}
+
+{% for name in names %}
+    <li>{{ name }}</li>
+{% endfor %}
+
+
+<br><br>-------- 字段类型 ----------
+<!-------了解一下如何在页面打印表格，以及如何迭代--------->
+任务:<br>
+<table border="1"><!--表格-->
+    <tr><!--行-->
+        <td><!--列-->
+            测试1
+        </td>
+        <td>
+            测试2
+        </td>
+    </tr>
+    <tr>
+        <td>测试3</td>
+        <td>测试4</td>
+    </tr>
+</table>
+<br><br>
+<table border="1">
+    {% for key,value in tasks.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+{#    <tr>#}
+{#        {% for key,value in tasks.items %}#}
+{#            <td>{{ key }}</td>#}
+{#            <td>{{ value }}</td>#}
+{#        {% endfor %}#}
+{#    </tr>#}
+</table>
+
+</body>
+</html>
