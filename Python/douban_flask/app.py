@@ -97,11 +97,18 @@ def source():
 # 词云
 @app.route('/word', methods=['POST', 'GET'])
 def word():
+
+    # 第一种：POST请求
     forms = request.form
     value1 = 'introduce'
     print(forms)
     if len(forms) > 0:
         value1 = forms['key_word']
+
+    # 第二种：GET请求
+    # value1 = request.args.get('key_word', '')
+    # if len(value1) <= 0:
+    #     value1 = 'introduce'
 
     # 获取需要生成词云的文字或者词
     conns = get_data_db('select %s from movie250' % value1)
