@@ -7,6 +7,7 @@ class Global {
 
   // 网络请求
   Dio dio;
+  String token = "";
 
   // 通过私有方法_internal()隐藏了构造方法，防止被误创建
   Global._internal() {
@@ -19,7 +20,8 @@ class Global {
   }
 
   // Singleton._internal(); // 不需要初始化
-  void init() {
+  void init() async {
+    // bool login = await isLogin();
     // 初始化网络请求
     dio = Dio();
     // 初始化属性
@@ -32,11 +34,14 @@ class Global {
       responseType: ResponseType.json,
     );
 
-    //
+    // 添加拦截器
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
         EasyLoading.show(status: "Loading");
         print("加载中...=========");
+        options.headers.addAll({
+          "token": token,
+        });
         return handler.next(options); //continue
       },
       onResponse: (e, handler) {

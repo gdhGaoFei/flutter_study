@@ -67,4 +67,22 @@ class LoginViewModel extends ChangeNotifier {
     }
     setIsLogin(false);
   }
+
+  // 验证 token 的 有效性
+  void zxw_user_token() async {
+    var result = await Global().dio.get(
+          "zxw/user",
+        );
+    dynamic data = result.data;
+    var suc = data['success'];
+    if (suc) {
+      var da = data['data'];
+      var token = await getUserToken();
+      data = {'user': da, "token": token};
+      loginSuccessSaveData(data);
+    } else {
+      EasyLoading.showError(data['msg']);
+      logoutClearData();
+    }
+  }
 }

@@ -59,7 +59,7 @@ dependencies:
   # flutter_custom_calendar
   # flutter_custom_calendar: 
   # sprintf String格式化
-  sprintf: ^4.0.2
+  # sprintf: ^4.0.2
 
 dev_dependencies:
   flutter_test:

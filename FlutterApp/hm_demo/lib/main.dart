@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hm_demo/Routes/routes.dart';
-import 'package:hm_demo/ViewModel/login_viewmodel.dart';
-import 'package:hm_demo/ViewModel/register_viewmodel.dart';
+import 'package:hm_demo/ViewModel/main/menu_viewmodel.dart';
+import 'package:hm_demo/ViewModel/user/login_viewmodel.dart';
+import 'package:hm_demo/ViewModel/user/register_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +17,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
         ChangeNotifierProvider(create: (context) => RegisterViewModel()),
+        ChangeNotifierProvider(create: (context) => MenuViewModel()),
       ],
       child: MyApp(),
     ),

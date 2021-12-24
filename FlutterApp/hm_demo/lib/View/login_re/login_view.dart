@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hm_demo/Routes/routes.dart';
 import 'package:hm_demo/Untils/user_untils.dart';
-import 'package:hm_demo/ViewModel/login_viewmodel.dart';
+import 'package:hm_demo/ViewModel/user/login_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tdui/form/index.dart';
 import 'package:tdui/input/index.dart';
 import 'package:tdui/tdui.dart';
@@ -132,10 +130,10 @@ class _LoginViewState extends State<LoginView> {
 
   // 初始化数据
   void initData() async {
-    SharedPreferences prefes = await SharedPreferences.getInstance();
-    var token = prefes.getString(kSharedPreferencesToken);
-    if (token != null && token.isNotEmpty) {
+    bool login = await isLogin();
+    if (login) {
       loginSuccess();
+      context.read<LoginViewModel>().zxw_user_token();
     }
   }
 

@@ -13,6 +13,19 @@ AppBar getAppBar(String title) {
   );
 }
 
+// 添加 左侧的 按钮
+AppBar getAppBarLeftBar(String title, Widget leading) {
+  return AppBar(
+    title: Text(
+      title,
+      // style: TextStyle(fontSize: 10),
+    ),
+    elevation: 10,
+    centerTitle: true,
+    leading: leading,
+  );
+}
+
 // 初始化 EasyLoading
 void configEasyLoading() {
   EasyLoading.instance

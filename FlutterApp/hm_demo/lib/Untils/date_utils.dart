@@ -1,3 +1,4 @@
+// 将date 转化成 yyyy-DD-mm的字符串
 String getYYYYmmDD(DateTime result) {
   var selYear = result.year;
   var selMonth = result.month;
