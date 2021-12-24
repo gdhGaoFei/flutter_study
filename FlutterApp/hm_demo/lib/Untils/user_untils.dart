@@ -45,6 +45,16 @@ void loginSuccessSaveData(dynamic da) async {
   print(da);
 }
 
+// 获取当前的用户信息
+dynamic getCurrentUserData() async {
+  // 初始化数据
+  SharedPreferences prefes = await SharedPreferences.getInstance();
+  String user = prefes.getString(kSharedPreferencesUserInfo);
+  dynamic da = json.decode(user);
+  // print(da);
+  return da;
+}
+
 // 退出登录
 void logoutClearData() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();

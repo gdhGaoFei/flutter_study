@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hm_demo/View/login_re/login_view.dart';
-import 'package:hm_demo/View/menu_view.dart';
+import 'package:hm_demo/View/main/menu_view.dart';
 import 'package:hm_demo/View/login_re/register_view.dart';
 import 'package:hm_demo/View/login_re/retrieve_pwd_view.dart';
 
