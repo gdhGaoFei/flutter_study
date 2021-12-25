@@ -8,6 +8,7 @@ import 'package:hm_demo/ViewModel/main/menu_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:provider/provider.dart';
 import 'package:tdui/tdui.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuView extends StatefulWidget {
   const MenuView({Key key}) : super(key: key);
@@ -50,7 +51,7 @@ class _MenuViewState extends State<MenuView> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _ScaffoldMenuViewKey,
-      appBar: getAppBarLeftBar(
+      appBar: getAppBarLeftRightBar(
         "菜单",
         IconButton(
           onPressed: _showDrawer,
@@ -61,14 +62,34 @@ class _MenuViewState extends State<MenuView> {
                       NetworkImage(Provider.of<MenuViewModel>(context).getHead),
                 ),
         ),
+        [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('settingTheme');
+            },
+            icon: Icon(Icons.settings),
+          ),
+        ],
       ),
+      // getAppBarLeftBar(
+      //   "菜单",
+      //   IconButton(
+      //     onPressed: _showDrawer,
+      //     icon: Provider.of<MenuViewModel>(context).getHead.isEmpty
+      //         ? Icon(Icons.person)
+      //         : CircleAvatar(
+      //             backgroundImage:
+      //                 NetworkImage(Provider.of<MenuViewModel>(context).getHead),
+      //           ),
+      //   ),
+      // ),
       // getAppBar("菜单"),
       // endDrawer: MenuDrawerView(),
       drawer: _drawerWidget(),
       body: Column(
         children: [
           Container(
-            height: 260,
+            height: 264.h,
             child: Swiper(
               scrollDirection:
                   Axis.horizontal, // 方向 Axis.horizontal  Axis.vertical
@@ -120,7 +141,7 @@ class _MenuViewState extends State<MenuView> {
   Drawer _drawerWidget() {
     return Drawer(
       child: Container(
-        width: 286,
+        width: 264.w,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -152,17 +173,15 @@ class _MenuViewState extends State<MenuView> {
               currentAccountPicture: ClipOval(
                 child: Image.network(
                   Provider.of<MenuViewModel>(context).getHead,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.fill,
                 ),
               ),
-              currentAccountPictureSize: Size(81, 81),
+              currentAccountPictureSize: Size(81.w, 81.w),
               otherAccountsPictures: [
                 ClipOval(
                   child: Image.network(
                     Provider.of<MenuViewModel>(context).getHead,
                     fit: BoxFit.fitHeight,
-                    width: 10,
-                    height: 10,
                   ),
                 ),
                 Icon(Icons.ac_unit),
@@ -277,7 +296,7 @@ class _MenuViewState extends State<MenuView> {
         content: Column(
           children: [
             SizedBox(
-              height: 8,
+              height: 8.h,
             ),
             CupertinoTextField(
               autofocus: true,

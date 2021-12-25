@@ -5,6 +5,7 @@ import 'package:hm_demo/base/view.dart';
 import 'package:tdui/input/index.dart';
 import 'package:tdui/tdui.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key key}) : super(key: key);
@@ -99,7 +100,7 @@ class _RegisterViewState extends State<RegisterView> {
                       },
                     ),
                     SizedBox(
-                      width: 8,
+                      width: 8.w,
                     ),
                     Text(Provider.of<RegisterViewModel>(context).getSex
                         ? "女"
@@ -124,7 +125,7 @@ class _RegisterViewState extends State<RegisterView> {
                       },
                     ),
                     SizedBox(
-                      width: 8,
+                      width: 8.w,
                     ),
                     Text(Provider.of<RegisterViewModel>(context).getDateStyle
                         ? "阳历"
@@ -136,7 +137,7 @@ class _RegisterViewState extends State<RegisterView> {
               ),
 
               Divider(
-                height: 8,
+                height: 8.h,
                 color: Colors.white,
               ),
 
@@ -174,7 +175,7 @@ class _RegisterViewState extends State<RegisterView> {
               //   ),
               // ),
               Divider(
-                height: 56,
+                height: 56.h,
                 color: Colors.white,
               ),
 

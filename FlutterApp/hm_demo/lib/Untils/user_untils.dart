@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:hm_demo/Global/Global.dart';
+import 'package:hm_demo/Model/user_model.dart';
 import 'package:hm_demo/Routes/routes.dart';
 import 'package:hm_demo/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -51,6 +52,13 @@ dynamic getCurrentUserData() async {
   SharedPreferences prefes = await SharedPreferences.getInstance();
   String user = prefes.getString(kSharedPreferencesUserInfo);
   dynamic da = json.decode(user);
+
+  // var model = UserModelData.fromJson(da);
+  // print(model.user.money.runtimeType);
+  //
+  // var model_json = model.toJson();
+  // print(model_json.toString()+"爱仕达大所多");
+
   // print(da);
   return da;
 }

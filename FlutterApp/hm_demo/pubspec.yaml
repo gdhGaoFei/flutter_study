@@ -61,6 +61,11 @@ dependencies:
   # sprintf String格式化
   # sprintf: ^4.0.2
 
+  # Flutter 高效率JSON转Model
+  json_annotation: ^3.1.0
+  json_serializable: ^3.5.0
+  build_runner: ^1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

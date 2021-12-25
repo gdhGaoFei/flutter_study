@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:tdui/form/index.dart';
 import 'package:tdui/input/index.dart';
 import 'package:tdui/tdui.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key key}) : super(key: key);
@@ -21,17 +22,17 @@ class _LoginViewState extends State<LoginView> {
       appBar: getAppBar("登录"),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.r),
           child: Column(
             children: [
               Image.asset(
                 "images/main.jpg",
                 width: double.infinity,
-                height: 260,
+                height: 286.h,
                 fit: BoxFit.fill,
               ),
               SizedBox(
-                height: 16,
+                height: 16.h,
               ),
               TdForm(
                 children: [
@@ -68,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                     hintText: "请输入密码",
                     obscureText: true,
                     clearable: true,
-                    height: 64,
+                    height: 64.h,
                     textInputAction: TextInputAction.send,
                     onSubmitted: (value) {
                       _login();
@@ -80,7 +81,7 @@ class _LoginViewState extends State<LoginView> {
                 ],
               ),
               SizedBox(
-                height: 16,
+                height: 16.h,
               ),
               GestureDetector(
                 child: Container(
@@ -96,7 +97,7 @@ class _LoginViewState extends State<LoginView> {
                 onTap: _retrieve_pwd_view,
               ),
               SizedBox(
-                height: 16,
+                height: 16.h,
               ),
               TdButton(
                 "登录",
@@ -105,7 +106,7 @@ class _LoginViewState extends State<LoginView> {
                 loading: Provider.of<LoginViewModel>(context).getIsLogin,
               ),
               SizedBox(
-                height: 16,
+                height: 16.h,
               ),
               TdButton(
                 "注册",

@@ -26,6 +26,21 @@ AppBar getAppBarLeftBar(String title, Widget leading) {
   );
 }
 
+// 添加 左各一个/右侧多个 按钮
+AppBar getAppBarLeftRightBar(
+    String title, Widget leading, List<Widget> actions) {
+  return AppBar(
+    title: Text(
+      title,
+      // style: TextStyle(fontSize: 10),
+    ),
+    elevation: 10,
+    centerTitle: true,
+    leading: leading,
+    actions: actions,
+  );
+}
+
 // 初始化 EasyLoading
 void configEasyLoading() {
   EasyLoading.instance
