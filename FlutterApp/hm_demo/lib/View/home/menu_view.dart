@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:hm_demo/Untils/user_untils.dart';
+import 'package:hm_demo/View/main/hmTabbar_view.dart';
 import 'package:hm_demo/ViewModel/main/menu_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:provider/provider.dart';
@@ -23,54 +24,37 @@ class _MenuViewState extends State<MenuView> {
       new GlobalKey<ScaffoldState>();
   // 输入的支出上限的文本
   String _inputMaxMonValue = "0";
-
-  // // 初始化视图时 调用
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   // 初始化数据
-  //   // _initData();
-  // }
-
-  // @override
-  // void setState(VoidCallback fn) {
-  //   // TODO: implement setState
-  //   super.setState(fn);
-  //   // 初始化数据
-  //   // _initData();
-  // }
-
-  // // 获取当前的用户信息
-  // void _initData() async {
-  //   context.read<MenuViewModel>().setHead(
-  //       "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp03%2F1Z9211616415M2-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642918095&t=72957dec1961ae660861d0b024df884f");
-  // }
+  // 选中的是哪个按钮
+  var _curSelIndex = 0;
+  // widgets body显示的
+  List<Widget> _widgets = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _ScaffoldMenuViewKey,
-      appBar: getAppBarLeftRightBar(
-        "菜单",
-        IconButton(
-          onPressed: _showDrawer,
-          icon: Provider.of<MenuViewModel>(context).getHead.isEmpty
-              ? Icon(Icons.person)
-              : CircleAvatar(
-                  backgroundImage:
-                      NetworkImage(Provider.of<MenuViewModel>(context).getHead),
+      appBar: _curSelIndex == 0
+          ? getAppBarLeftRightBar(
+              "菜单",
+              IconButton(
+                onPressed: _showDrawer,
+                icon: Provider.of<MenuViewModel>(context).getHead.isEmpty
+                    ? Icon(Icons.person)
+                    : CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            Provider.of<MenuViewModel>(context).getHead),
+                      ),
+              ),
+              [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('settingTheme');
+                  },
+                  icon: Icon(Icons.settings),
                 ),
-        ),
-        [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('settingTheme');
-            },
-            icon: Icon(Icons.settings),
-          ),
-        ],
-      ),
+              ],
+            )
+          : null,
       // getAppBarLeftBar(
       //   "菜单",
       //   IconButton(
@@ -86,46 +70,44 @@ class _MenuViewState extends State<MenuView> {
       // getAppBar("菜单"),
       // endDrawer: MenuDrawerView(),
       drawer: _drawerWidget(),
-      body: Column(
-        children: [
-          Container(
-            height: 264.h,
-            child: Swiper(
-              scrollDirection:
-                  Axis.horizontal, // 方向 Axis.horizontal  Axis.vertical
-              itemCount: 4, // 展示数量
-              autoplay: true, // 自动翻页
-              itemBuilder: (BuildContext context, int index) {
-                return Image.network(
-                  "https://img1.baidu.com/it/u=4096154597,1152085153&fm=26&fmt=auto",
-                  fit: BoxFit.fill,
-                );
-              }, // 布局构建
-              onTap: (index) {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (BuildContext context) {
-                //   // return RetrievePwdView();
-                //   return ShowInputAlertWidget(
-                //     title: "标题",
-                //   );
-                //   // return ShowInputAlertWidget((v) {
-                //   //   print(v);
-                //   // }, "提示", "请输入昵称");
-                // }));
-              }, // 点击时间
-              pagination: SwiperPagination(), // 分页指示
-              viewportFraction: 0.8, // 视窗比例
-              layout: SwiperLayout.STACK, // 布局方式
-              itemWidth: MediaQuery.of(context).size.width, // 条目宽度
-              itemHeight: MediaQuery.of(context).size.height, // 条目高度
-              autoplayDisableOnInteraction: true, // 用户进行操作时停止自动翻页
-              loop: true, // 无线轮播
-              // indicatorLayout: PageIndicatorLayout.SLIDE, // 指标布局 试了半天也没试出来这是啥
-            ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "首页",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "我的",
           ),
         ],
+        currentIndex: _curSelIndex,
+        onTap: (value) {
+          setState(() {
+            _curSelIndex = value;
+          });
+        },
       ),
+      body: _getBodyWidget(),
     );
+  }
+
+  // 当前选中的是哪个视图
+  Widget _getBodyWidget() {
+    if (_curSelIndex < _widgets.length) {
+      return _widgets[_curSelIndex];
+    }
+    Widget wid = null;
+    if (_curSelIndex == 0) {
+      wid = HMTabbarView();
+    } else {
+      wid = Center(
+        child: Text(_curSelIndex.toString()),
+      );
+    }
+    print(wid);
+    _widgets.add(wid);
+    return wid;
   }
 
   // 展示 tdDrawer
