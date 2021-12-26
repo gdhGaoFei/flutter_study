@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:hm_demo/View/dynamic/hmdynamic_view.dart';
+import 'package:hm_demo/View/dynamic/hmdynamicpublic_view.dart';
 import 'package:hm_demo/View/login_re/login_view.dart';
-import 'package:hm_demo/View/home/menu_view.dart';
+import 'package:hm_demo/View/main/hmtabbar_view.dart';
 import 'package:hm_demo/View/login_re/register_view.dart';
 import 'package:hm_demo/View/login_re/retrieve_pwd_view.dart';
 import 'package:hm_demo/View/home/settingTheme_view.dart';
-import 'package:hm_demo/View/main/hmTabbar_view.dart';
+import 'package:hm_demo/View/home/hmhome_view.dart';
+import 'package:hm_demo/View/message/hmmessage_view.dart';
+import 'package:hm_demo/View/mine/hmmine_view.dart';
 
 Map<String, WidgetBuilder> routes = {
   "/": (BuildContext context) => LoginView(),
-  "tabbar": (BuildContext context) => HMTabbarView(),
-  "menu": (BuildContext context) => MenuView(),
+  "tabbar": (BuildContext context) => HMHomeView(),
+  "menu": (BuildContext context) => HMTabbarView(),
   "register": (BuildContext context) => RegisterView(),
   "retrieve_pwd_view": (BuildContext context) => RetrievePwdView(),
   'settingTheme': (BuildContext context) => SettingThemeView(),
+  'message': (BuildContext context) => HMMessageView(),
+  'dynamic': (BuildContext context) => HMDynamicView(),
+  "dynamic_public": (BuildContext context) => HMDynamicPublicView(),
+  'mine': (BuildContext context) => HMMineView(),
 };
 
 // 保存token的key

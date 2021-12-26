@@ -3,7 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hm_demo/Global/global_theme.dart';
 import 'package:hm_demo/Routes/routes.dart';
-import 'package:hm_demo/ViewModel/main/menu_viewmodel.dart';
+import 'package:hm_demo/ViewModel/main/hmtabbar_viewmodel.dart';
 import 'package:hm_demo/ViewModel/main/settingTheme_viewmodel.dart';
 import 'package:hm_demo/ViewModel/user/login_viewmodel.dart';
 import 'package:hm_demo/ViewModel/user/register_viewmodel.dart';
@@ -28,7 +28,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
         ChangeNotifierProvider(create: (context) => RegisterViewModel()),
-        ChangeNotifierProvider(create: (context) => MenuViewModel()),
+        ChangeNotifierProvider(create: (context) => HMTabbarViewModel()),
         ChangeNotifierProvider(create: (context) => themeViewModel),
       ],
       child: MyApp(),
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
       //设置适配尺寸 (填入设计稿中设备的屏幕尺寸) 此处假如设计稿是按iPhone6的尺寸设计的(iPhone6 750*1334)
       designSize: Size(750, 1334),
       builder: () => MaterialApp(
-        debugShowCheckedModeBanner: false,
+        // debugShowCheckedModeBanner: false,
         navigatorKey: navigatorKey,
         title: '华梅APP',
         theme: ThemeData.light().copyWith(

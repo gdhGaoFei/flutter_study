@@ -54,6 +54,8 @@ dependencies:
   flutter_swiper: ^1.1.6
   # 提示框
   flutter_easyloading: ^3.0.0
+  # 类似sdimage/yyimage
+  cached_network_image: ^3.0.0
   # tdui
   tdui: 
   # flutter_custom_calendar
