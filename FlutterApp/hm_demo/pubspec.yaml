@@ -68,6 +68,11 @@ dependencies:
   json_serializable: ^3.5.0
   build_runner: ^1.0.0
 
+  # 订阅者 - 类似 通知Notification
+  event_bus: ^1.1.1
+  # photo_view
+  photo_view:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

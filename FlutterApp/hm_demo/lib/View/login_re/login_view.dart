@@ -126,17 +126,18 @@ class _LoginViewState extends State<LoginView> {
     super.initState();
     // test();
     // 初始化
-    initData();
+    // initData();
   }
 
   // 初始化数据
-  void initData() async {
-    bool login = await isLogin();
-    if (login) {
-      loginSuccess();
-      context.read<LoginViewModel>().zxw_user_token();
-    }
-  }
+  // void initData() async {
+  //   print("进入了此界面=======");
+  //   bool login = await isLogin();
+  //   if (login) {
+  //     loginSuccess();
+  //     context.read<LoginViewModel>().zxw_user_token();
+  //   }
+  // }
 
   // 登录
   void _login() {

@@ -27,10 +27,20 @@ Future<String> getUserToken() async {
   return token;
 }
 
+/// 获取登录用户的id
+Future<String> getUserId() async {
+  dynamic user = await getCurrentUserData();
+  String uid = user['user']['id'].toString();
+  if (uid == null) {
+    uid = "";
+  }
+  return uid;
+}
+
 // 登录成功
 void loginSuccess() {
-  Navigator.of(navigatorKey.currentContext).pushAndRemoveUntil(
-      new MaterialPageRoute(builder: routes['menu']), (route) => route == null);
+  // Navigator.of(navigatorKey.currentContext).pushAndRemoveUntil(
+  //     new MaterialPageRoute(builder: routes['menu']), (route) => route == null);
 }
 
 // 登录成功时 保存数据
@@ -53,11 +63,12 @@ dynamic getCurrentUserData() async {
   String user = prefes.getString(kSharedPreferencesUserInfo);
   dynamic da = json.decode(user);
 
-  // var model = UserModelData.fromJson(da);
-  // print(model.user.money.runtimeType);
-  //
-  // var model_json = model.toJson();
-  // print(model_json.toString()+"爱仕达大所多");
+  // 测试 model
+  var model = UserModelData.fromJson(da);
+  print(model.user.money.runtimeType);
+
+  var modelJson = model.toJson();
+  print(modelJson.toString() + "爱仕达大所多");
 
   // print(da);
   return da;

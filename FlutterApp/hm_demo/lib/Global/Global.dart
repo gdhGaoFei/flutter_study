@@ -30,7 +30,7 @@ class Global {
       connectTimeout: 5000, //链接时间
       sendTimeout: 5000, // 发送时间
       receiveTimeout: 5000, // 响应时间
-      contentType: Headers.jsonContentType,
+      contentType: Headers.formUrlEncodedContentType,
       responseType: ResponseType.json,
     );
 

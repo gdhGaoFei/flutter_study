@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tdui/tdui.dart';
 
 class HMHomeView extends StatefulWidget {
   const HMHomeView({Key key}) : super(key: key);
@@ -61,25 +62,71 @@ class _HMHomeViewState extends State<HMHomeView> {
           SizedBox(
             height: 10.h,
           ),
-          // GridView.builder(
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //     //横轴元素个数
-          //     crossAxisCount: 3,
-          //     //水平单个子Widget之间间距
-          //     mainAxisSpacing: 10.0.w,
-          //     //垂直单个子Widget之间间距
-          //     crossAxisSpacing: 10.0.h,
-          //   ),
-          //   itemBuilder: (BuildContext context, int index) {
-          //     return _itemBuilderGridView(index);
-          //   },
-          //   itemCount: 10,
-          // ),
           // GridView(gridDelegate: gridDelegate),
+          Padding(
+            padding: EdgeInsets.zero,
+            child: Row(
+              children: [
+                _itemBuilderGridView(0),
+                _itemBuilderGridView(1),
+                _itemBuilderGridView(2),
+                _itemBuilderGridView(3),
+              ],
+            ),
+            // GridView.builder(
+            //   itemCount: 10,
+            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //     //横轴元素个数
+            //     crossAxisCount: 3,
+            //     //水平单个子Widget之间间距
+            //     mainAxisSpacing: 10.0.w,
+            //     //垂直单个子Widget之间间距
+            //     crossAxisSpacing: 10.0.h,
+            //   ),
+            //   itemBuilder: (BuildContext context, int index) {
+            //     return _itemBuilderGridView(index);
+            //   },
+            // ),
+          ),
           ListTile(
             title: Text("记账"),
             leading: Icon(Icons.money),
             trailing: Icon(Icons.arrow_right_rounded),
+            onTap: () {
+              // print("object");
+              Navigator.of(context).pushNamed("accouting");
+            },
+          ),
+          // SizedBox(
+          //   height: 2,
+          // ),
+          GestureDetector(
+            child: Container(
+              margin: EdgeInsets.all(10),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.local_laundry_service,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Text(
+                    '恋爱日记',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  // Container(
+                  //   alignment: Alignment.centerRight,
+                  //   child: Icon(Icons.arrow_right),
+                  // ),
+                ],
+              ),
+            ),
+            onTap: () {
+              Navigator.of(context).pushNamed('love');
+            },
           ),
         ],
       ),
@@ -115,8 +162,11 @@ class _HMHomeViewState extends State<HMHomeView> {
         itemCount: 4, // 展示数量
         autoplay: true, // 自动翻页
         itemBuilder: (BuildContext context, int index) {
-          return CachedNetworkImage(imageUrl: "https://img1.baidu.com/it/u=4096154597,1152085153&fm=26&fmt=auto",
-          fit: BoxFit.fill,);
+          return CachedNetworkImage(
+            imageUrl:
+                "https://img1.baidu.com/it/u=4096154597,1152085153&fm=26&fmt=auto",
+            fit: BoxFit.fill,
+          );
           //   Image.network(
           //   "https://img1.baidu.com/it/u=4096154597,1152085153&fm=26&fmt=auto",
           //   fit: BoxFit.fill,
@@ -149,8 +199,34 @@ class _HMHomeViewState extends State<HMHomeView> {
 
 // 创建每个单元格的样式
   Widget _itemBuilderGridView(int index) {
-    return Center(
-      child: Text(index.toString()),
+    return GestureDetector(
+      child: Stack(
+        alignment: AlignmentDirectional.topCenter,
+        children: [
+          CachedNetworkImage(
+            imageUrl:
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc7f5b3f695ea80121b994f2f637.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1643196528&t=3c1b82e029741fbe44ded5dfdd372a1c",
+            // fit: BoxFit.fitWidth,
+            height: 56,
+            width: 92,
+            alignment: Alignment.bottomCenter,
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 11),
+            child: Text(
+              "按钮" + index.toString(),
+              style: TextStyle(
+                  fontSize: 14, color: Theme.of(context).primaryColor),
+            ),
+          ),
+        ],
+      ),
+      onTap: () {
+        TdDialog.confirm(context)(
+          index.toString(),
+          title: index.toString(),
+        );
+      },
     );
   }
 }

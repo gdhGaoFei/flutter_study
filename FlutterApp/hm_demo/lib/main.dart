@@ -3,6 +3,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hm_demo/Global/global_theme.dart';
 import 'package:hm_demo/Routes/routes.dart';
+import 'package:hm_demo/Untils/user_untils.dart';
+import 'package:hm_demo/ViewModel/accounting/hmaccountingadd_viewmodel.dart';
+import 'package:hm_demo/ViewModel/accounting/hmaccouting_viewmodel.dart';
+import 'package:hm_demo/ViewModel/love/hmloveimage_viewmodel.dart';
 import 'package:hm_demo/ViewModel/main/hmtabbar_viewmodel.dart';
 import 'package:hm_demo/ViewModel/main/settingTheme_viewmodel.dart';
 import 'package:hm_demo/ViewModel/user/login_viewmodel.dart';
@@ -30,6 +34,9 @@ void main() async {
         ChangeNotifierProvider(create: (context) => RegisterViewModel()),
         ChangeNotifierProvider(create: (context) => HMTabbarViewModel()),
         ChangeNotifierProvider(create: (context) => themeViewModel),
+        ChangeNotifierProvider(create: (context) => HMAccoutingViewmodel()),
+        ChangeNotifierProvider(create: (context) => HMAccoutingAddViewModel()),
+        ChangeNotifierProvider(create: (context) => HMLoveImageViewModel()),
       ],
       child: MyApp(),
     ),
@@ -60,10 +67,12 @@ class _MyAppState extends State<MyApp> {
 
   // 初始化数据
   void initData() async {
-    SharedPreferences prefes = await SharedPreferences.getInstance();
-    var token = prefes.getString(kSharedPreferencesToken);
-    if (token != null && token.isNotEmpty) {
+    print("进入了此界面=======");
+    bool login = await isLogin();
+    if (login) {
       _isLogin = true;
+      loginSuccess();
+      context.read<LoginViewModel>().zxw_user_token();
     }
   }
 

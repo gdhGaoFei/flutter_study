@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hm_demo/View/dynamic/hmdynamic_view.dart';
 import 'package:hm_demo/View/dynamic/hmdynamicpublic_view.dart';
+import 'package:hm_demo/View/home/accounting/hmaccounting_view.dart';
+import 'package:hm_demo/View/home/accounting/hmaccountingadd_view.dart';
+import 'package:hm_demo/View/home/accounting/hmaccountingchart_view.dart';
+import 'package:hm_demo/View/home/love/hmloveImage_view.dart';
 import 'package:hm_demo/View/login_re/login_view.dart';
 import 'package:hm_demo/View/main/hmtabbar_view.dart';
 import 'package:hm_demo/View/login_re/register_view.dart';
@@ -17,6 +21,10 @@ Map<String, WidgetBuilder> routes = {
   "register": (BuildContext context) => RegisterView(),
   "retrieve_pwd_view": (BuildContext context) => RetrievePwdView(),
   'settingTheme': (BuildContext context) => SettingThemeView(),
+  'accouting': (BuildContext context) => HMAccoutingView(),
+  'accouting/chart': (BuildContext context) => HMAccountingChartView(),
+  "accouting/add": (BuildContext context) => HMAccoutingAddView(),
+  'love': (BuildContext context) => HMLoveImageView(),
   'message': (BuildContext context) => HMMessageView(),
   'dynamic': (BuildContext context) => HMDynamicView(),
   "dynamic_public": (BuildContext context) => HMDynamicPublicView(),
