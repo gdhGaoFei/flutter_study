@@ -24,6 +24,8 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
   void initState() {
     _money = TextEditingController();
     _desc = TextEditingController();
+    // 重置 方式 列表
+    //context.read<HMAccoutingAddViewModel>().setModes([]);
     eventBus.on<TMEventBusGlobal>().listen((event) {
       context.read<HMAccoutingViewmodel>().accountingHistory();
       setState(() {
@@ -116,13 +118,13 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
 
   // 展示alert
   void _showTypesAlert() async {
-    var result = await showObjectAlertDialog(
-        context.read<HMAccoutingAddViewModel>().getTypes, "选择类型", "name");
+    HMAccoutingAddViewModel vm = context.read<HMAccoutingAddViewModel>();
+    var result = await showObjectAlertDialog(vm.getTypes, "选择类型", "name");
     print(result.toString() + "选择类型 ========= ");
-    if (result != null &&
-        result != context.read<HMAccoutingAddViewModel>().getType) {
-      context.read<HMAccoutingAddViewModel>().setMode(null);
-      context.read<HMAccoutingAddViewModel>().setType(result);
+    if (result != null && result != vm.getType) {
+      vm.setModes([]);
+      vm.setMode(null);
+      vm.setType(result);
     }
   }
 

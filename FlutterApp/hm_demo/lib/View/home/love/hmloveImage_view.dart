@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_luban/flutter_luban.dart';
+import 'package:hm_demo/View/home/love/jh_photo_allscreen_show.dart';
 import 'package:hm_demo/ViewModel/love/hmloveimage_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:image_picker/image_picker.dart';
@@ -62,44 +63,102 @@ class _HMLoveImageViewState extends State<HMLoveImageView> {
     HMLoveImageViewModel vm = Provider.of<HMLoveImageViewModel>(context);
     List imgs = vm.getImgs;
     if (imgs != null) {
-      widgets = imgs
-          .map(
-            (e) => Stack(
-              // 层叠布局
-              children: [
-                GestureDetector(
-                  child: CachedNetworkImage(
-                    imageUrl: e['url'],
-                    fit: BoxFit.fill,
-                    width: 200,
-                    height: 200,
-                  ),
-                  onTap: () {
-                    // Navigator.of(context)
-                    //     .push(MaterialPageRoute(builder: (context) {
-                    //   return PhotoPreview(
-                    //     initialIndex: 0,
-                    //     photoList: [e['url']],
-                    //   );
-                    // }));
-                  },
+      List images = [];
+      for (var item in imgs) {
+        images.add(item['url']);
+      }
+      for (var i = 0; i < imgs.length; i++) {
+        dynamic e = imgs[i];
+        widgets.add(
+          Stack(
+            // 层叠布局
+            children: [
+              GestureDetector(
+                child: CachedNetworkImage(
+                  imageUrl: e['url'],
+                  fit: BoxFit.fill,
+                  width: 200,
+                  height: 200,
                 ),
-                GestureDetector(
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Icon(Icons.delete),
+                onTap: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      pageBuilder: (BuildContext context, Animation animation,
+                              Animation secondaryAnimation) =>
+                          FadeTransition(
+                        opacity: animation,
+                        child: JhPhotoAllScreenShow(
+                          imgDataArr: images,
+                          index: i,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+              GestureDetector(
+                child: Container(
+                  alignment: Alignment.topRight,
+                  child: Icon(
+                    Icons.delete,
+                    color: Theme.of(context).primaryColor,
                   ),
-                  onTap: () {
-                    // 删除的操作
-                    context
-                        .read<HMLoveImageViewModel>()
-                        .delete(e["id"].toString());
-                  },
                 ),
-              ],
-            ),
-          )
-          .toList();
+                onTap: () {
+                  context
+                      .read<HMLoveImageViewModel>()
+                      .delete(e['id'].toString());
+                },
+              )
+            ],
+          ),
+        );
+      }
+      // widgets = imgs
+      //     .map(
+      //       (e) => Stack(
+      //         // 层叠布局
+      //         children: [
+      //           GestureDetector(
+      //             child: CachedNetworkImage(
+      //               imageUrl: e['url'],
+      //               fit: BoxFit.fill,
+      //               width: 200,
+      //               height: 200,
+      //             ),
+      //             onTap: () {
+      //               Navigator.of(context).push(
+      //                 PageRouteBuilder(
+      //                   pageBuilder: (BuildContext context, Animation animation,
+      //                           Animation secondaryAnimation) =>
+      //                       FadeTransition(
+      //                     //使用渐隐渐入过渡,
+      //                     opacity: animation,
+      //                     child: JhPhotoAllScreenShow(
+      //                       imgDataArr: [e['url']],
+      //                       index: 0,
+      //                     ),
+      //                   ),
+      //                 ),
+      //               );
+      //             },
+      //           ),
+      //           GestureDetector(
+      //             child: Align(
+      //               alignment: Alignment.topRight,
+      //               child: Icon(Icons.delete),
+      //             ),
+      //             onTap: () {
+      //               // 删除的操作
+      //               context
+      //                   .read<HMLoveImageViewModel>()
+      //                   .delete(e["id"].toString());
+      //             },
+      //           ),
+      //         ],
+      //       ),
+      //     )
+      //     .toList();
     }
     return widgets;
   }
