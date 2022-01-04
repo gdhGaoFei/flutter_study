@@ -12,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HMLoveImageView extends StatefulWidget {
   const HMLoveImageView({Key key}) : super(key: key);
@@ -42,11 +43,11 @@ class _HMLoveImageViewState extends State<HMLoveImageView> {
         crossAxisCount: 3,
         shrinkWrap: true,
         //垂直子Widget之间间距
-        mainAxisSpacing: 10,
+        mainAxisSpacing: 8.h,
         //水平子Widget之间间距
-        crossAxisSpacing: 10.0,
+        crossAxisSpacing: 8.0.w,
         //GridView内边距
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(8.0.w),
         //子Widget列表
         children: _itemBuilderGridlist(),
       ),
@@ -77,8 +78,8 @@ class _HMLoveImageViewState extends State<HMLoveImageView> {
                 child: CachedNetworkImage(
                   imageUrl: e['url'],
                   fit: BoxFit.fill,
-                  width: 200,
-                  height: 200,
+                  width: 200.w,
+                  height: 200.h,
                 ),
                 onTap: () {
                   Navigator.of(context).push(
@@ -194,7 +195,7 @@ class _HMLoveImageViewState extends State<HMLoveImageView> {
               },
             ),
             SizedBox(
-              height: 40,
+              height: MediaQuery.of(context).padding.bottom,
             ),
           ],
         );
@@ -205,19 +206,24 @@ class _HMLoveImageViewState extends State<HMLoveImageView> {
   // 进行拍照
   void _camera() async {
     final pickedFile = await _picker.getImage(source: ImageSource.camera);
-    uploadFile(pickedFile.path);
+    if (pickedFile != null) {
+      uploadFile(pickedFile.path);
+    }
   }
 
   // 选择照片
   void _selectImage() async {
     // 选择照片
     final pickedFile = await _picker.getImage(source: ImageSource.gallery);
-    uploadFile(pickedFile.path);
+    if (pickedFile != null) {
+      uploadFile(pickedFile.path);
+    }
   }
 
   // 上传图片
   void uploadFile(String path) async {
     Navigator.pop(context);
+    print('object ==================');
 
     EasyLoading.show(status: '正在上传中...');
 

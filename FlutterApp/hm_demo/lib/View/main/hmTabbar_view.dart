@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hm_demo/Routes/routes.dart';
 import 'package:hm_demo/Untils/user_untils.dart';
 import 'package:hm_demo/View/dynamic/hmdynamic_view.dart';
 import 'package:hm_demo/View/dynamic/hmdynamicpublic_view.dart';
@@ -113,22 +112,26 @@ class _HMTabbarViewState extends State<HMTabbarView> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _curSelIndex = 0;
-                });
-              },
-              icon: Icon(Icons.home),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _curSelIndex = 1;
-                });
-              },
-              icon: Icon(Icons.delivery_dining),
-            ),
+            // TextButton.icon(onPressed: onPressed, icon: icon, label: label)
+            // TextButton.icon(
+            //   onPressed: () {
+            //     setState(() {
+            //       _curSelIndex = 0;
+            //     });
+            //   },
+            //   label: Text("首页"),
+            //   icon: Icon(Icons.home),
+            // ),
+            _bottomTabbarItem(0, '首页', Icons.home),
+            _bottomTabbarItem(1, '', Icons.delivery_dining),
+            // IconButton(
+            //   onPressed: () {
+            //     setState(() {
+            //       _curSelIndex = 1;
+            //     });
+            //   },
+            //   icon: Icon(Icons.delivery_dining),
+            // ),
             SizedBox(),
             IconButton(
               onPressed: () {
@@ -173,6 +176,85 @@ class _HMTabbarViewState extends State<HMTabbarView> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: _getBodyWidget(),
     );
+  }
+
+  // 底部的Tabbar - 并且带下标
+  Widget _bottomTabbarItem(int index, String text, IconData icons) {
+    bool isSel = _curSelIndex == index;
+    Color colorSel = isSel ? Colors.white : Colors.black;
+    // double btnW = MediaQuery.of(context).size.width / 5.0;
+    return Expanded(
+      flex: 0,
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            _curSelIndex = index;
+          });
+        },
+        child: SizedBox(
+          height: 49,
+          child: text.length > 0
+              ? Column(
+                  children: [
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Icon(
+                      icons,
+                      color: colorSel,
+                    ),
+                    Text(
+                      text,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: colorSel,
+                      ),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Icon(
+                    icons,
+                    color: colorSel,
+                  ),
+                ),
+        ),
+      ),
+    );
+    // return Container(
+    //   height: 49,
+    //   child: GestureDetector(
+    //     onTap: () {
+    //       setState(() {
+    //         _curSelIndex = index;
+    //       });
+    //     },
+    //     child: text.length > 0
+    //         ? Column(
+    //             children: [
+    //               SizedBox(
+    //                 height: 4,
+    //               ),
+    //               Icon(
+    //                 Icons.home,
+    //                 color: colorSel,
+    //               ),
+    //               Text(
+    //                 text,
+    //                 style: TextStyle(
+    //                   fontSize: 10,
+    //                   color: colorSel,
+    //                 ),
+    //               ),
+    //             ],
+    //           )
+    //         : Center(
+    //             child: Icon(
+    //               Icons.home,
+    //             ),
+    //           ),
+    //   ),
+    // );
   }
 
   // 当前选中的是哪个视图
@@ -260,7 +342,7 @@ class _HMTabbarViewState extends State<HMTabbarView> {
                   fit: BoxFit.fill,
                 ),
               ),
-              currentAccountPictureSize: Size(81.w, 81.w),
+              currentAccountPictureSize: Size(54.w, 54.w),
               otherAccountsPictures: [
                 ClipOval(
                   child: Image.network(
@@ -381,7 +463,7 @@ class _HMTabbarViewState extends State<HMTabbarView> {
         content: Column(
           children: [
             SizedBox(
-              height: 8.h,
+              height: 4.h,
             ),
             CupertinoTextField(
               autofocus: true,

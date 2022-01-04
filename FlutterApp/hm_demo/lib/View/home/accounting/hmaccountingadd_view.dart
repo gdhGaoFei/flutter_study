@@ -5,6 +5,7 @@ import 'package:hm_demo/ViewModel/accounting/hmaccountingadd_viewmodel.dart';
 import 'package:hm_demo/ViewModel/accounting/hmaccouting_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HMAccoutingAddView extends StatefulWidget {
   const HMAccoutingAddView({Key key}) : super(key: key);
@@ -52,7 +53,7 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
     return Scaffold(
       appBar: getAppBar("新增记账"),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(10.w),
         child: Column(
           children: [
             ListTile(
@@ -75,7 +76,7 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
             ),
             Divider(height: 1),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -89,7 +90,7 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
             ),
             Divider(height: 1),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -100,11 +101,11 @@ class _HMAccoutingAddViewState extends State<HMAccoutingAddView> {
               ),
             ),
             Divider(height: 1),
-            SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Container(
-              height: 44,
+              height: 36.h,
               width: double.infinity,
-              margin: EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.only(left: 10.w, right: 10.w),
               child: ElevatedButton(
                 onPressed: _submit,
                 child: Text("新增"),

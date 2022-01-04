@@ -56,11 +56,11 @@ class _HMHomeViewState extends State<HMHomeView> {
       body: ListView(
         children: [
           Container(
-            height: 264.h,
+            height: 148.h,
             child: _banner(),
           ),
           SizedBox(
-            height: 10.h,
+            height: 8.h,
           ),
           // GridView(gridDelegate: gridDelegate),
           Padding(
@@ -102,16 +102,19 @@ class _HMHomeViewState extends State<HMHomeView> {
           // ),
           GestureDetector(
             child: Container(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(10.w),
               width: double.infinity,
               child: Row(
                 children: [
+                  SizedBox(
+                    width: 2.w,
+                  ),
                   Icon(
                     Icons.local_laundry_service,
                     color: Colors.grey,
                   ),
                   SizedBox(
-                    width: 40,
+                    width: 32.w,
                   ),
                   Text(
                     '恋爱日记',
@@ -126,6 +129,33 @@ class _HMHomeViewState extends State<HMHomeView> {
             ),
             onTap: () {
               Navigator.of(context).pushNamed('love');
+            },
+          ),
+          GestureDetector(
+            child: Container(
+              margin: EdgeInsets.all(10.w),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 2.w,
+                  ),
+                  Icon(Icons.date_range),
+                  SizedBox(
+                    width: 32.w,
+                  ),
+                  Text('提醒事项'),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_right),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            onTap: () {
+              Navigator.of(context).pushNamed("dateAlert");
             },
           ),
         ],
@@ -157,7 +187,7 @@ class _HMHomeViewState extends State<HMHomeView> {
     if (_swiper == null) {
       print("object============Swiper");
       _swiper = Swiper(
-        containerHeight: 264.h,
+        // containerHeight: 264.h,
         scrollDirection: Axis.horizontal, // 方向 Axis.horizontal  Axis.vertical
         itemCount: 4, // 展示数量
         autoplay: true, // 自动翻页
@@ -207,12 +237,12 @@ class _HMHomeViewState extends State<HMHomeView> {
             imageUrl:
                 "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc7f5b3f695ea80121b994f2f637.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1643196528&t=3c1b82e029741fbe44ded5dfdd372a1c",
             // fit: BoxFit.fitWidth,
-            height: 56,
-            width: 92,
+            height: 56.h,
+            width: 92.w,
             alignment: Alignment.bottomCenter,
           ),
           Container(
-            margin: EdgeInsets.only(top: 11),
+            margin: EdgeInsets.only(top: 11.w),
             child: Text(
               "按钮" + index.toString(),
               style: TextStyle(

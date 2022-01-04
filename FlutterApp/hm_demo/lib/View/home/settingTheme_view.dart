@@ -37,7 +37,7 @@ class _SettingThemeViewState extends State<SettingThemeView> {
       child: GestureDetector(
         child: Container(
           width: double.infinity,
-          height: 56.h,
+          height: 36.h,
           decoration: BoxDecoration(
             color: themes[index],
             borderRadius: BorderRadius.all(

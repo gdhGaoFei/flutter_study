@@ -61,7 +61,7 @@ class Global {
           }
         }
         EasyLoading.showError(msg);
-        print(msg);
+        print(e.toString());
       },
     ));
   }

@@ -6,6 +6,7 @@ import 'package:left_scroll_actions/cupertinoLeftScroll.dart';
 import 'package:left_scroll_actions/global/actionListener.dart';
 import 'package:left_scroll_actions/left_scroll_actions.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HMAccoutingView extends StatefulWidget {
   const HMAccoutingView({Key key}) : super(key: key);
@@ -28,6 +29,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
 
   @override
   Widget build(BuildContext context) {
+    HMAccoutingViewmodel vm = Provider.of<HMAccoutingViewmodel>(context);
     return Scaffold(
       // appBar: getAppBar("记账"),
       appBar: AppBar(
@@ -145,7 +147,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
               ],
             ),
           ),
-          preferredSize: Size.fromHeight(80),
+          preferredSize: Size.fromHeight(56.h),
         ),
         actions: [
           IconButton(
@@ -159,9 +161,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
       body: ListView.builder(
         shrinkWrap: true,
         itemBuilder: _itemBuilderList,
-        itemCount: Provider.of<HMAccoutingViewmodel>(context).getList == null
-            ? 0
-            : Provider.of<HMAccoutingViewmodel>(context).getList.length,
+        itemCount: vm.getList == null ? 0 : vm.getList.length,
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
@@ -207,7 +207,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.w),
           child: Row(
             children: [
               Expanded(
@@ -220,7 +220,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
                 "收入:" + vm.getList[index]["income"].toString(),
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              SizedBox(width: 8),
+              SizedBox(width: 8.w),
               Text(
                 "支出:" + vm.getList[index]["expenditure"].toString(),
                 style: Theme.of(context).textTheme.bodyText1,
@@ -240,7 +240,9 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
   List<Widget> _childrens(dynamic datas) {
     List<Widget> widgets = [];
     for (var i = 0; i < datas.length; i++) {
-      widgets.add(Container(height: 8));
+      widgets.add(
+        Container(height: 4.h),
+      );
 
       // 是否是收入
       bool isSr = datas[i]["type"]["action"] == 0;
@@ -253,11 +255,11 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
           key: Key(i.toString()),
           closeTag: LeftScrollCloseTag('tag - TODO: your tag'),
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10.w),
             child: Row(
               children: [
                 Icon(isSr ? Icons.add : Icons.money_off),
-                SizedBox(width: 16),
+                SizedBox(width: 16.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,7 +291,7 @@ class _HMAccoutingViewState extends State<HMAccoutingView> {
           ],
         ),
       );
-      widgets.add(Container(height: 8));
+      widgets.add(Container(height: 4.h));
     }
     return widgets;
   }

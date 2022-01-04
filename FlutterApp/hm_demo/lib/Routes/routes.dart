@@ -4,6 +4,7 @@ import 'package:hm_demo/View/dynamic/hmdynamicpublic_view.dart';
 import 'package:hm_demo/View/home/accounting/hmaccounting_view.dart';
 import 'package:hm_demo/View/home/accounting/hmaccountingadd_view.dart';
 import 'package:hm_demo/View/home/accounting/hmaccountingchart_view.dart';
+import 'package:hm_demo/View/home/date_range/hmdate_range.dart';
 import 'package:hm_demo/View/home/love/hmloveImage_view.dart';
 import 'package:hm_demo/View/login_re/login_view.dart';
 import 'package:hm_demo/View/main/hmtabbar_view.dart';
@@ -25,6 +26,7 @@ Map<String, WidgetBuilder> routes = {
   'accouting/chart': (BuildContext context) => HMAccountingChartView(),
   "accouting/add": (BuildContext context) => HMAccoutingAddView(),
   'love': (BuildContext context) => HMLoveImageView(),
+  'dateAlert': (BuildContext context) => HMDateRangeView(),
   'message': (BuildContext context) => HMMessageView(),
   'dynamic': (BuildContext context) => HMDynamicView(),
   "dynamic_public": (BuildContext context) => HMDynamicPublicView(),
