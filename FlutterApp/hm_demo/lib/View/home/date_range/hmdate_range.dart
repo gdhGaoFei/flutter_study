@@ -14,10 +14,21 @@ class _HMDateRangeViewState extends State<HMDateRangeView>
   // tabbarcontroller
   TabController _controller;
   // widget
-  List<Widget> _widgets = [HMDateAlertListView(), HMDateAlertAddView()];
+  List<Widget> _widgets = [];
 
   @override
   void initState() {
+    // 初始化数据
+    HMDateAlertListView list = HMDateAlertListView(
+      blockClickInt: (value) {
+        setState(() {
+          print('object - ====== 添加 提醒事项');
+          _controller.index = 1;
+        });
+      },
+    );
+    _widgets = [list, HMDateAlertAddView()];
+    // 初始化Controller
     _controller = TabController(length: _widgets.length, vsync: this);
 
     // TODO: implement initState

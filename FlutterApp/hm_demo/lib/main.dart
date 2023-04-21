@@ -10,6 +10,7 @@ import 'package:hm_demo/ViewModel/accounting/hmaccouting_viewmodel.dart';
 import 'package:hm_demo/ViewModel/love/hmloveimage_viewmodel.dart';
 import 'package:hm_demo/ViewModel/main/hmtabbar_viewmodel.dart';
 import 'package:hm_demo/ViewModel/main/settingTheme_viewmodel.dart';
+import 'package:hm_demo/ViewModel/message/hmmessage_viewmodel.dart';
 import 'package:hm_demo/ViewModel/user/login_viewmodel.dart';
 import 'package:hm_demo/ViewModel/user/register_viewmodel.dart';
 import 'package:hm_demo/base/view.dart';
@@ -39,6 +40,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => HMAccoutingViewmodel()),
         ChangeNotifierProvider(create: (context) => HMAccoutingAddViewModel()),
         ChangeNotifierProvider(create: (context) => HMLoveImageViewModel()),
+        ChangeNotifierProvider(create: (context) => HMMessageViewModel()),
       ],
       child: MyApp(),
     ),

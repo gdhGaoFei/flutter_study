@@ -62,6 +62,7 @@ class Global {
         }
         EasyLoading.showError(msg);
         print(e.toString());
+        return handler.next(e);
       },
     ));
   }
